@@ -1,19 +1,19 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import loginButton from '../components/loginButton';
-import logoutButton from '../components/logoutButton';
+import loginButton from '../../components/buttons/loginButton';
+import startApp from '../../views/startApp';
 import firebaseConfig from './apiKeys';
 
 const checkLoginStatus = () => {
   firebase.initializeApp(firebaseConfig);
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      logoutButton();
-      document.querySelector('#create-board-nav').innerHTML = '<a class="nav-link" href="#">Create Board</a>';
+      document.querySelector('#nav-create-board').innerHTML = '<a class="nav-link" href="#">Create Board</a>';
+      startApp(user);
     } else {
       // person is NOT logged in
       loginButton();
-      document.querySelector('#create-board-nav').innerHTML = '';
+      document.querySelector('#nav-create-board').innerHTML = '';
     }
   });
 };

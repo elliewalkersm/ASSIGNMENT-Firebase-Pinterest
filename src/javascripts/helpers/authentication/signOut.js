@@ -1,6 +1,5 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import navigationBar from '../components/navigationBar';
 
 const signOut = () => {
   firebase.auth().signOut();
