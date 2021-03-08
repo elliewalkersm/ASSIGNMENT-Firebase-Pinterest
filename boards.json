@@ -1,17 +1,27 @@
-[{
-  "image": "http://dummyimage.com/221x227.png/ff4444/ffffff",
-  "title": "Confessor, The (a.k.a. The Good Shepherd)",
-  "firebaseKey": "-MV-KKwN6AIIpQhnY0Zw"
-}, {
-  "image": "http://dummyimage.com/120x184.png/ff4444/ffffff",
-  "title": "Cutting Edge: Going for the Gold, The"
-}, {
-  "image": "http://dummyimage.com/204x165.jpg/cc0000/ffffff",
-  "title": "Entity, The"
-}, {
-  "image": "http://dummyimage.com/230x117.png/cc0000/ffffff",
-  "title": "Dark Truth, A (Truth, The)"
-}, {
-  "image": "http://dummyimage.com/108x240.png/5fa2dd/ffffff",
-  "title": "Black Angel"
-}]
+{
+  "-MV-KKwN6AIIpQhnY0Zw": {
+      "firebaseKey": "-MV-KKwN6AIIpQhnY0Zw",
+      "image": "http://dummyimage.com/221x227.png/ff4444/ffffff",
+      "title": "Confessor, The (a.k.a. The Good Shepherd)"
+  },
+  "-MV-Kj6J887PJ9XO6eJC": {
+      "firebaseKey": "-MV-Kj6J887PJ9XO6eJC",
+      "image": "http://dummyimage.com/102x214.png/ff4444/ffffff",
+      "title": "Barbarian Queen"
+  },
+  "-MV-KnpoFw1pTaEhcQ7v": {
+      "firebaseKey": "-MV-KnpoFw1pTaEhcQ7v",
+      "image": "http://dummyimage.com/201x155.bmp/5fa2dd/ffffff",
+      "title": "'Round Midnight"
+  },
+  "-MV-KsOfJ5-wsE3mJJpi": {
+      "firebaseKey": "-MV-KsOfJ5-wsE3mJJpi",
+      "image": "http://dummyimage.com/111x123.bmp/5fa2dd/ffffff",
+      "title": "Stray Cat Rock: Delinquent Girl Boss (Nora-neko rokku: Onna banchô)"
+  },
+  "-MV-KzC1i8jgmRhq3Kfp": {
+      "firebaseKey": "-MV-KzC1i8jgmRhq3Kfp",
+      "image": "http://dummyimage.com/245x157.bmp/cc0000/ffffff",
+      "title": "Santa Sangre"
+  }
+}

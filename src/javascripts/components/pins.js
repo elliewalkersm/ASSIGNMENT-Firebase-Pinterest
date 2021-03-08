@@ -9,7 +9,7 @@ const showPins = (array) => {
     <div class="card-body">
       <h5 class="card-title">${item.title}</h5>
       <p class="card-text">${item.description}</p>
-      <button type="button" class="btn btn-danger" id="delete-pin--${firebaseKey}">Delete Pin</button>
+      <button type="button" class="btn btn-danger" id="delete-pin--${item.firebaseKey}">Delete Pin</button>
     </div>
   </div>`
   });

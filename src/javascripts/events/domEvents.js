@@ -1,4 +1,4 @@
-// import createBoardForm from '../components/forms/createBoardForm';
+import createBoardForm from '../components/forms/createBoardForm';
 import createPinForm from '../components/forms/createPinForm';
 // import showPins from '../components/pins';
 // import { deletePin, createPin, getSinglePin, updatePins } from '../helpers/data/pinData';
@@ -49,10 +49,10 @@ const domEvents = (userId) => {
     //   const firebaseKey = e.target.id.split('--')[1];
     //   e.preventDefault();
     //   const pinObject = {
-      // image: document.querySelector('#pinImage').value,
-      // title: document.querySelector('#pinTitle').value,
-      // description: document.querySelector('#pinDescription').value,
-      // uid: userId
+    //    image: document.querySelector('#pinImage').value,
+    //    title: document.querySelector('#pinTitle').value,
+    //    description: document.querySelector('#pinDescription').value,
+    //    uid: userId
     //   };
 
     //   updatePin(firebaseKey, pinObject).then((pinsArray) => showPins(pinsArray));
@@ -78,17 +78,17 @@ const domEvents = (userId) => {
     // }
 
     // ADD CLICK EVENT FOR SHOWING FORM FOR CREATING A BOARD
-    // if (e.target.id.includes('create-borad')) {
-    //   createBoardForm();
-    // }
+    if (e.target.id.includes('create-borad')) {
+      createBoardForm();
+    }
 
     // ADD CLICK EVENT FOR SUBMITTING FORM FOR CREATING A BOARD
     if (e.target.id.includes('create-board')) {
       e.preventDefault();
       const boardObject = {
-      image: document.querySelector('#boardImage').value,
-      title: document.querySelector('#boardTitle').value,
-      uid: userId
+        image: document.querySelector('#boardImage').value,
+        title: document.querySelector('#boardTitle').value,
+        uid: userId
       };
       console.warn(boardObject);
       // createBoards(boardObject, userId).then((boardsArray) => showBoardss(boardsArray));

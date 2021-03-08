@@ -1,16 +1,15 @@
 const showBoards = (array) => {
-  document.querySelector('#add-button').innerHTML = '';
+  document.querySelector('#add-button').innerHTML = '<button class="btn btn-danger btn-lg mb-4" id="add-author-btn">Create A Board</button>';
   document.querySelector('#form-container').innerHTML = '';
   document.querySelector('#view').innerHTML = '';
 
   array.forEach((item) => {
-    const firebaseKey = item.target.id.split('--')[1];
     document.querySelector('#view').innerHTML += `<div class="card" style="width: 18rem;">
     <img src="${item.image}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">${item.title}</h5>
       <button type="button" class="btn btn-primary" id="view-pins-btn">View</button>
-      <button type="button" class="btn btn-danger" id="delete-board--${firebaseKey}">Delete Board</button>
+      <button type="button" class="btn btn-danger" id="delete-board--${item.firebaseKey}">Delete Board</button>
     </div>
   </div>`;
   });

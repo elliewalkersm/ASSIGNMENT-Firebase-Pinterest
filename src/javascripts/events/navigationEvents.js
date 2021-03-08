@@ -1,7 +1,7 @@
 // import signOut from '../helpers/authentication/signOut';
 import getBoards from '../helpers/data/boardData';
 import { showBoards } from '../components/boards';
-import createBoardForm from '../components/forms/createBoardForm';
+// import createBoardForm from '../components/forms/createBoardForm';
 
 const navigationEvents = (userId) => {
   // LOGOUT BUTTON
@@ -14,8 +14,8 @@ const navigationEvents = (userId) => {
   });
 
   // CREATE BOARD: SHOW FORM TO ADD BOARD
-  document.querySelector('#nav-create-board')
-    .addEventListener('click', createBoardForm);
+  // document.querySelector('#add-button')
+  //   .addEventListener('click', createBoardForm);
 };
 
 export default navigationEvents;

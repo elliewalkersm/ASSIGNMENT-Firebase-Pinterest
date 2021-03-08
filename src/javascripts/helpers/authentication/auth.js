@@ -8,12 +8,12 @@ const checkLoginStatus = () => {
   firebase.initializeApp(firebaseConfig);
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      document.querySelector('#nav-create-board').innerHTML = '<a class="nav-link" href="#">Create Board</a>';
+      // document.querySelector('#nav-create-board').innerHTML = '<a class="nav-link" href="#">Create Board</a>';
       startApp(user);
     } else {
       // person is NOT logged in
       loginButton();
-      document.querySelector('#nav-create-board').innerHTML = '';
+      // document.querySelector('#nav-create-board').innerHTML = '';
     }
   });
 };

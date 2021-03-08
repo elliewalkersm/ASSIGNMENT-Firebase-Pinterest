@@ -19,7 +19,7 @@ const createPinForm = () => {
   <div class="form-group" id="select-board">
   </div>
   <button type="submit" id="create-pin" class="btn btn-primary">Create Pin</button>
-</form>`
-}
+</form>`;
+};
 
 export default createPinForm;

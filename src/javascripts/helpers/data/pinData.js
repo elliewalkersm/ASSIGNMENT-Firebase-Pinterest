@@ -6,8 +6,8 @@ import firebaseConfig from '../authentication/apiKeys';
 // API CALL
 const dbUrl = firebaseConfig.databaseURL;
 // GET PINS
-const getPins = (userId) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/pins.json?orderBy="uid"&equalTo="${userId}"`)
+const getPins = () => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/pins.json`)
     .then((response) => resolve(Object.values(response.data)))
     .catch((error) => reject(error));
 });
