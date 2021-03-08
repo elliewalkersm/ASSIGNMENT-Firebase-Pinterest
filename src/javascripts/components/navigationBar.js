@@ -1,5 +1,5 @@
 const navigationBar = () => {
-  const domString = `<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  document.querySelector('#app').innerHTML = `<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Pinterest</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,7 +8,7 @@ const navigationBar = () => {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="#" id="all-boards">Home<span class="sr-only">(current)</span>
+          <a class="nav-link" href="#" id="all-boards">Boards<span class="sr-only">(current)</span>
           </a>
         </li>
         <div id="nav-create-board"></div>
@@ -16,8 +16,6 @@ const navigationBar = () => {
     </div>
   </div>
 </nav>`;
-
-  document.querySelector('#app').innerHTML = (domString);
 };
 
 export default navigationBar;

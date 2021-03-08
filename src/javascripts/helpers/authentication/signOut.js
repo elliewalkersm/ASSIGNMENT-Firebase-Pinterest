@@ -3,7 +3,7 @@ import 'firebase/auth';
 
 const signOut = () => {
   firebase.auth().signOut();
-  document.querySelector('#create-board-nav').innerHTML = ' ';
+  // document.querySelector('#create-board-nav').innerHTML = ' ';
 };
 
 export default signOut;
