@@ -12,7 +12,12 @@ const getBoards = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 // DELETE BOARD
+const deleteBoard = (firebaseKey, userId) => new Promise((resolve, reject) => {
+  axios.delete(`${dbUrl}/boards/${firebaseKey}.json`)
+    .then(() => getBoards(userId).then((boardsArray) => resolve(boardsArray)))
+    .catch((error) => reject(error));
+});
 // CREATE BOARD
 // UPDATE BOARD
 
-export default getBoards;
+export { getBoards, deleteBoard };

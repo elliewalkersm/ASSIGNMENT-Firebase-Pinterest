@@ -1,5 +1,5 @@
 // import signOut from '../helpers/authentication/signOut';
-import getBoards from '../helpers/data/boardData';
+import { getBoards } from '../helpers/data/boardData';
 import { showBoards } from '../components/boards';
 // import createBoardForm from '../components/forms/createBoardForm';
 
