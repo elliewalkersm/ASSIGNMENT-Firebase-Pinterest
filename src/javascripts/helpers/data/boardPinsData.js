@@ -1,5 +1,5 @@
-import { getSingleBoard } from './boardData';
-import { getBoardPins } from './pinData';
+import { getSingleBoard, deleteBoard } from './boardData';
+import { getBoardPins, deletePin } from './pinData';
 
 const boardPinsInfo = (boardId) => new Promise((resolve, reject) => {
   const board = getSingleBoard(boardId);
@@ -12,4 +12,12 @@ const boardPinsInfo = (boardId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export default boardPinsInfo;
+const deleteBoardPins = (boardId, userId) => new Promise((resolve, reject) => {
+  getBoardPins(boardId).then((boardPinsArray) => {
+    const deletePins = boardPinsArray.map((pin) => deletePin(pin.firebaseKey));
+
+    Promise.all(deletePins).then(() => resolve(deleteBoard(boardId, userId)));
+  }).catch((error) => reject(error));
+});
+
+export { boardPinsInfo, deleteBoardPins };

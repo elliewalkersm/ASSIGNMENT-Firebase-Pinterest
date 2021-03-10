@@ -1,15 +1,13 @@
 // import createBoardForm from '../components/forms/createBoardForm';
 // import createPinForm from '../components/forms/createPinForm';
 import { showPins } from '../components/pins';
-// import { deletePin, createPin, getSinglePin, updatePins } from '../helpers/data/pinData';
+import { deletePin } from '../helpers/data/pinData';
 // import editPinForm from '../components/forms/editPinForm';
 import { showBoards } from '../components/boards';
 // import { deleteBoard, createBoard, getSingleBoard, updateBoards } from '../helpers/data/boardData';
 // import editBoardForm from '../components/forms/editBoardForm';
-import boardPinsInfo from '../helpers/data/boardPinsData';
+import { boardPinsInfo, deleteBoardPins } from '../helpers/data/boardPinsData';
 import boardInfo from '../components/boardInfo';
-
-import { deleteBoard } from '../helpers/data/boardData';
 
 const domEvents = () => {
   document.querySelector('body').addEventListener('click', (e) => {
@@ -23,12 +21,12 @@ const domEvents = () => {
     }
 
     // CLICK EVENT FOR DELETING A PIN
-    //   if (e.target.id.includes('delete-pin')) {
-    //   if (window.confirm('Want to delete?')) {
-    //     const firebaseKey = e.target.id.split('--')[1];
-    //     deletePin(firebaseKey).then((pinsArray) => showPins(pinsArray));
-    //   }
-    // }
+    if (e.target.id.includes('delete-pin')) {
+      if (window.confirm('Want to delete?')) {
+        const firebaseKey = e.target.id.split('--')[1];
+        deletePin(firebaseKey).then((pinsArray) => showPins(pinsArray));
+      }
+    }
 
     // CLICK EVENT FOR SHOWING FORM FOR CREATING A PIN
     // if (e.target.id.includes('create-pin-btn')) {
@@ -76,8 +74,7 @@ const domEvents = () => {
     if (e.target.id.includes('delete-board')) {
       if (window.confirm('Want to delete?')) {
         const firebaseKey = e.target.id.split('--')[1];
-        deleteBoard(firebaseKey).then((boardsArray) => showBoards(boardsArray));
-        // deleteBoardPins(boardId, userId).then((boardsArray) => showBoards(boardssArray));
+        deleteBoardPins(firebaseKey).then((boardsArray) => showBoards(boardsArray));
       }
     }
 
