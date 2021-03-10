@@ -1,15 +1,15 @@
-// import createBoardForm from '../components/forms/createBoardForm';
-// import createPinForm from '../components/forms/createPinForm';
+import createBoardForm from '../components/forms/createBoardForm';
+import createPinForm from '../components/forms/createPinForm';
 import { showPins } from '../components/pins';
 import { deletePin } from '../helpers/data/pinData';
 // import editPinForm from '../components/forms/editPinForm';
 import { showBoards } from '../components/boards';
-// import { deleteBoard, createBoard, getSingleBoard, updateBoards } from '../helpers/data/boardData';
+import { createBoards } from '../helpers/data/boardData';
 // import editBoardForm from '../components/forms/editBoardForm';
 import { boardPinsInfo, deleteBoardPins } from '../helpers/data/boardPinsData';
 import boardInfo from '../components/boardInfo';
 
-const domEvents = () => {
+const domEvents = (uid) => {
   document.querySelector('body').addEventListener('click', (e) => {
     // VIEW ALL BOARDS PINS
     if (e.target.id.includes('board-title')) {
@@ -29,9 +29,9 @@ const domEvents = () => {
     }
 
     // CLICK EVENT FOR SHOWING FORM FOR CREATING A PIN
-    // if (e.target.id.includes('create-pin-btn')) {
-    //   createPinForm();
-    // }
+    if (e.target.id.includes('create-pin-btn')) {
+      createPinForm();
+    }
 
     // CLICK EVENT FOR SUBMITTING FORM FOR CREATING A PIN
     // if (e.target.id.includes('create-pin')) {
@@ -78,31 +78,22 @@ const domEvents = () => {
       }
     }
 
-    // DELETING ALL BOARD'S PINS
-    // if (e.target.id.includes('board-name-title')) {
-    //   const boardId = e.target.id.split('--')[1];
-    //   boardPinsInfo(boardId).then((boardInfoObj) => {
-    //     showBoards(boardInfoObj.pins);
-    //     boardInfo(boardInfoObj.boards);
-    //   });
-    // }
-
     // ADD CLICK EVENT FOR SHOWING FORM FOR CREATING A BOARD
-    // if (e.target.id.includes('create-borad')) {
-    //   createBoardForm();
-    // }
+    if (e.target.id.includes('create-board-btn')) {
+      createBoardForm();
+    }
 
     // ADD CLICK EVENT FOR SUBMITTING FORM FOR CREATING A BOARD
-    // if (e.target.id.includes('create-board')) {
-    //   e.preventDefault();
-    //   const boardObject = {
-    //     image: document.querySelector('#boardImage').value,
-    //     title: document.querySelector('#boardTitle').value,
-    //     uid: userId
-    //   };
-    //   console.warn(boardObject);
-    // createBoards(boardObject, userId).then((boardsArray) => showBoardss(boardsArray));
-    // }
+    if (e.target.id.includes('submit-board')) {
+      e.preventDefault();
+      const boardObject = {
+        image: document.querySelector('#boardImage').value,
+        title: document.querySelector('#boardTitle').value,
+        user: uid
+      };
+      console.warn(boardObject);
+      createBoards(boardObject, uid).then((boardsArray) => showBoards(boardsArray));
+    }
 
     // CLICK EVENT FOR SHOWING MODAL FORM FOR EDITING A BOARD
     // if (e.target.id.includes('edit-board-btn')) {
