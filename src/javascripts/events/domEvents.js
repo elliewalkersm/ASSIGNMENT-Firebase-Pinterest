@@ -1,17 +1,27 @@
 // import createBoardForm from '../components/forms/createBoardForm';
 // import createPinForm from '../components/forms/createPinForm';
-// import showPins from '../components/pins';
+import { showPins } from '../components/pins';
 // import { deletePin, createPin, getSinglePin, updatePins } from '../helpers/data/pinData';
 // import editPinForm from '../components/forms/editPinForm';
 import { showBoards } from '../components/boards';
 // import { deleteBoard, createBoard, getSingleBoard, updateBoards } from '../helpers/data/boardData';
 // import editBoardForm from '../components/forms/editBoardForm';
-// import { deleteBoardPins, boardPinsInfo } from '../helpers/data/boardPinsData';
+import boardPinsInfo from '../helpers/data/boardPinsData';
+import boardInfo from '../components/boardInfo';
 
 import { deleteBoard } from '../helpers/data/boardData';
 
 const domEvents = () => {
   document.querySelector('body').addEventListener('click', (e) => {
+    // VIEW ALL BOARDS PINS
+    if (e.target.id.includes('board-title')) {
+      const boardId = e.target.id.split('--')[1];
+      boardPinsInfo(boardId).then((boardInfoObj) => {
+        showPins(boardInfoObj.pins);
+        boardInfo(boardInfoObj.boardTitle);
+      });
+    }
+
     // CLICK EVENT FOR DELETING A PIN
     //   if (e.target.id.includes('delete-pin')) {
     //   if (window.confirm('Want to delete?')) {

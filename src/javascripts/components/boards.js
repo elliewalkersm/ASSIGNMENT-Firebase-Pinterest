@@ -7,8 +7,9 @@ const showBoards = (array) => {
     document.querySelector('#view').innerHTML += `<div class="card" style="width: 18rem;">
     <img src="${item.image}" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">${item.title}</h5>
-      <button type="button" class="btn btn-primary" id="view-pins-btn">View</button>
+      <a href="#"><h5 id="board-title--${item.firebaseKey}"
+      h5 class="card-title">${item.title}</h5></a>
+      <button type="button" class="btn btn-primary" id="view-pins-btn">Edit</button>
       <button type="button" class="btn btn-danger" id="delete-board--${item.firebaseKey}">Delete Board</button>
     </div>
   </div>`;

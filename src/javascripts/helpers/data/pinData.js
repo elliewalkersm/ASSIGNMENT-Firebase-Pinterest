@@ -11,8 +11,25 @@ const getPins = () => new Promise((resolve, reject) => {
     .then((response) => resolve(Object.values(response.data)))
     .catch((error) => reject(error));
 });
+
+// GET SINGLE PIN
+const getSinglePin = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/pins/${firebaseKey}.json`)
+    .then((response) => resolve(response.data))
+    .catch((error) => reject(error));
+});
+
 // DELETE PIN
 // CREATE PIN
 // UPDATE PIN
+// GET ALL BOARDS PINS
+const getBoardPins = (boardId) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/pins.json?orderBy="board_id"&equalTo="${boardId}"`)
+    .then((response) => {
+      const boardPinsArray = Object.values(response.data);
+      resolve(boardPinsArray);
+    })
+    .catch((error) => reject(error));
+});
 
-export default getPins;
+export { getPins, getSinglePin, getBoardPins };
