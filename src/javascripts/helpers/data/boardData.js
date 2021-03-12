@@ -1,4 +1,4 @@
-// import firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import 'firebase/auth';
 import axios from 'axios';
 import firebaseConfig from '../authentication/apiKeys';
@@ -29,8 +29,8 @@ const deleteBoard = (firebaseKey, userId) => new Promise((resolve, reject) => {
 const createBoards = (boardsObject, userId) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/boards.json`, boardsObject)
     .then((response) => {
-      const body = { firebaseKey: response.data.title };
-      axios.patch(`${dbUrl}/boards/${response.data.title}.json`, body)
+      const body = { firebaseKey: response.data.name };
+      axios.patch(`${dbUrl}/boards/${response.data.name}.json`, body)
         .then(() => {
           getBoards(userId).then((boardsArray) => resolve(boardsArray));
         });
@@ -38,7 +38,12 @@ const createBoards = (boardsObject, userId) => new Promise((resolve, reject) => 
 });
 
 // UPDATE BOARD
+const updateBoard = (firebaseKey, boardObject) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/boards/${firebaseKey}.json`, boardObject)
+    .then(() => getBoards(firebase.auth().currentUser.uid)).then((boardsArray) => resolve(boardsArray))
+    .catch((error) => reject(error));
+});
 
 export {
-  getBoards, deleteBoard, getSingleBoard, createBoards
+  getBoards, deleteBoard, getSingleBoard, createBoards, updateBoard
 };

@@ -1,5 +1,5 @@
 const showBoards = (array) => {
-  document.querySelector('#add-button').innerHTML = '<button class="btn btn-danger btn-lg mb-4" id="create-board-btn">Create A Board</button>';
+  document.querySelector('#add-button').innerHTML = '<button class="btn btn-dark btn-lg mb-4" id="create-board-btn">Create A Board</button>';
   document.querySelector('#form-container').innerHTML = '';
   document.querySelector('#view').innerHTML = '';
 
@@ -9,7 +9,7 @@ const showBoards = (array) => {
     <div class="card-body">
       <a href="#"><h5 id="board-title--${item.firebaseKey}"
       h5 class="card-title">${item.title}</h5></a>
-      <button type="button" class="btn btn-primary" id="view-pins-btn">Edit</button>
+      <button type="button" class="btn btn-primary" id="edit-board-btn">Edit</button>
       <button type="button" class="btn btn-danger" id="delete-board--${item.firebaseKey}">Delete Board</button>
     </div>
   </div>`;
