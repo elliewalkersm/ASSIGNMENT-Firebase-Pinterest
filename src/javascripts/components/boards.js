@@ -5,7 +5,7 @@ const showBoards = (array) => {
 
   array.forEach((item) => {
     document.querySelector('#view').innerHTML += `<div class="card" id="board-card" style="width: 18rem;">
-    <img src="${item.image}" class="card-img-top" alt="...">
+    <img src="${item.image}" class="card-img-top" id="board-image" alt="...">
     <div class="card-body">
       <a href="#"><h5 id="board-title--${item.firebaseKey}"
       h5 class="card-title">${item.title}</h5></a>
