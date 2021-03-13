@@ -3,10 +3,12 @@ import 'firebase/auth';
 import createBoardForm from '../components/forms/createBoardForm';
 import createPinForm from '../components/forms/createPinForm';
 import { showPins } from '../components/pins';
-import { deletePin, createPin } from '../helpers/data/pinData';
-// import editPinForm from '../components/forms/editPinForm';
+import {
+  deletePin, createPin, getSinglePin, updatePin
+} from '../helpers/data/pinData';
+import editPinForm from '../components/forms/editPinForm';
 import { showBoards } from '../components/boards';
-import { createBoards, getSingleBoard } from '../helpers/data/boardData';
+import { createBoards, getSingleBoard, updateBoard } from '../helpers/data/boardData';
 import editBoardForm from '../components/forms/editBoardForm';
 import { boardPinsInfo, deleteBoardPins } from '../helpers/data/boardPinsData';
 import boardInfo from '../components/boardInfo';
@@ -43,33 +45,35 @@ const domEvents = (uid) => {
         image: document.querySelector('#pinImage').value,
         title: document.querySelector('#pinTitle').value,
         description: document.querySelector('#pinDescription').value,
+        board_id: document.querySelector('#board').value,
         uid: firebase.auth().currentUser.uid
       };
       createPin(pinObject, uid).then((pinsArray) => showPins(pinsArray));
     }
 
     // CLICK EVENT FOR SHOWING MODAL FORM FOR EDITING A PIN
-    // if (e.target.id.includes('edit-pin-btn')) {
-    //   const firebaseKey = e.target.id.split('--')[1];
-    //   formModal('Edit Pin');
-    //   getSinglePin(firebaseKey).then((pinObject) => editPinForm(pinObject));
-    // }
+    if (e.target.id.includes('edit-pin-btn')) {
+      const firebaseKey = e.target.id.split('--')[1];
+      formModal('Edit Pin');
+      getSinglePin(firebaseKey).then((pinObject) => editPinForm(pinObject));
+    }
 
     // CLICK EVENT FOR EDITING A PIN
-    // if (e.target.id.includes('update-pin')) {
-    //   const firebaseKey = e.target.id.split('--')[1];
-    //   e.preventDefault();
-    //   const pinObject = {
-    //    image: document.querySelector('#pinImage').value,
-    //    title: document.querySelector('#pinTitle').value,
-    //    description: document.querySelector('#pinDescription').value,
-    //    uid: userId
-    //   };
+    if (e.target.id.includes('update-pin')) {
+      const firebaseKey = e.target.id.split('--')[1];
+      e.preventDefault();
+      const pinObject = {
+        image: document.querySelector('#pinImage').value,
+        title: document.querySelector('#pinTitle').value,
+        description: document.querySelector('#pinDescription').value,
+        board_id: document.querySelector('#board').value,
+        uid: firebase.auth().currentUser.uid
+      };
 
-    //   updatePin(firebaseKey, pinObject).then((pinsArray) => showPins(pinsArray));
+      updatePin(firebaseKey, pinObject).then((pinsArray) => showPins(pinsArray));
 
-    //   $('#formModal').modal('toggle');
-    // }
+      $('#formModal').modal('toggle');
+    }
 
     // ADD CLICK EVENT FOR DELETING A BOARD
     if (e.target.id.includes('delete-board')) {
@@ -103,19 +107,19 @@ const domEvents = (uid) => {
     }
 
     // ADD CLICK EVENT FOR EDITING A BOARD
-    // if (e.target.id.includes('update-board')) {
-    //   const firebaseKey = e.target.id.split('--')[1];
-    //   e.preventDefault();
-    //   const boardObject = {
-    //   image: document.querySelector('#boardImage').value,
-    //   title: document.querySelector('#boardTitle').value,
-    //   uid: userId
-    //   };
+    if (e.target.id.includes('update-board')) {
+      const firebaseKey = e.target.id.split('--')[1];
+      e.preventDefault();
+      const boardObject = {
+        image: document.querySelector('#boardImage').value,
+        title: document.querySelector('#boardTitle').value,
+        uid: firebase.auth().currentUser.uid
+      };
 
-    //   updateBoard(firebaseKey, boardObject).then((boardsArray) => showBoards(boardsArray));
+      updateBoard(firebaseKey, boardObject).then((boardsArray) => showBoards(boardsArray));
 
-    //   $('#formModal').modal('toggle');
-    // }
+      $('#formModal').modal('toggle');
+    }
   });
 };
 

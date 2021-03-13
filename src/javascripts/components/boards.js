@@ -4,12 +4,12 @@ const showBoards = (array) => {
   document.querySelector('#view').innerHTML = '';
 
   array.forEach((item) => {
-    document.querySelector('#view').innerHTML += `<div class="card" style="width: 18rem;">
+    document.querySelector('#view').innerHTML += `<div class="card" id="board-card" style="width: 18rem;">
     <img src="${item.image}" class="card-img-top" alt="...">
     <div class="card-body">
       <a href="#"><h5 id="board-title--${item.firebaseKey}"
       h5 class="card-title">${item.title}</h5></a>
-      <button type="button" class="btn btn-primary" id="edit-board-btn">Edit</button>
+      <button class="btn btn-dark" data-toggle="modal" data-target="#formModal" id="edit-board-btn--${item.firebaseKey}">Edit Board</button>
       <button type="button" class="btn btn-danger" id="delete-board--${item.firebaseKey}">Delete Board</button>
     </div>
   </div>`;

@@ -4,12 +4,12 @@ const showPins = (array) => {
   document.querySelector('#view').innerHTML = '';
 
   array.forEach((item) => {
-    document.querySelector('#view').innerHTML += `<div class="card" style="width: 18rem;">
+    document.querySelector('#view').innerHTML += `<div class="card" id="pin-card" style="width: 18rem;">
     <img src="${item.image}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">${item.title}</h5>
       <p class="card-text">${item.description}</p>
-      <button type="button" class="btn btn-primary" id="view-pins-btn">Edit</button>
+      <button class="btn btn-dark" data-toggle="modal" data-target="#formModal" id="edit-pin-btn--${item.firebaseKey}">Edit Pin</button>
       <button type="button" class="btn btn-danger" id="delete-pin--${item.firebaseKey}">Delete Pin</button>
     </div>
   </div>`;

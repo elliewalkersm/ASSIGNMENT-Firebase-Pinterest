@@ -15,9 +15,9 @@ const createPinForm = () => {
     <input type="text" class="form-control" id="pinTitle" aria-describedby="pinTitle" placeholder="Enter Pin Title" required>
   </div>
   <div class="form-group">
-  <label for="pinDescription">Pin Description</label>
-  <input type="text" class="form-control" id="pinDescription" aria-describedby="pinDescription" placeholder="Enter Pin Description" required>
-</div>
+    <label for="pinDescription">Pin Description</label>
+    <input type="text" class="form-control" id="pinDescription" aria-describedby="pinDescription" placeholder="Enter Pin Description" required>
+  </div>
   <div class="form-group" id="select-board">
   </div>
   <button type="submit" id="create-pin" class="btn btn-primary">Create Pin</button>
